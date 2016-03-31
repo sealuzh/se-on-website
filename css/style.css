@@ -1,0 +1,64 @@
+/*CSS Reset - derivative of YUI Reset CSS - http://developer.yahoo.com/yui/reset/#code */
+html, body, div, pre, form, fieldset, input, h1, h2, h3, h4, h5, h6, p, textarea, ul, ol, li, dl, dt, dd, blockquote, th, td { margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset, img { border:0; }
+address, caption, cite, code { font-style:normal; font-weight:normal; }
+ul { list-style:none; }
+caption, th { text-align:left; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal; }
+q:before, q:after { content:''; }
+abbr, acronym { border:0; }
+
+/*Base Styles*/
+body { font:13px Verdana, Arial, Helvetica, sans-serif; background-color: #989898; color: #333333; }
+
+/*Load ASAP*/
+#header h1 { width:960px; height:60px; display:block; text-indent:-9999px; background:transparent url(../images/style/logo.png) no-repeat top left; }
+#header h1 a { width:285px; height:100%; display:block; outline:none; }
+#content p, #content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content pre, #content ol, #content ul { margin: 0 0 0 50px; }
+a, a:visited, a:active { color: #006699; text-decoration:none; }
+a:hover { color: #0099ff; text-decoration:underline; }
+a:link img, a:visited img, a:active img { border:3px solid #e1e1e1; }
+a:hover img { border: 3px solid #464646; }
+.floatRight { float:right; padding:0 0 10px 10px; }
+.floatLeft { float:left; padding:0 10px 10px 0; }
+.clear { clear:both; }
+h1, h2, h3, h4, h5, h6 { color: #000000; font-weight:bold; }
+div.navigation { margin-left:30px; margin-bottom:20px; }
+
+/*Layout*/
+#wrapper { margin: 0 auto; width: 980px; text-align:left; }
+#inner { width:980px; float:left; background:#989898 url(../images/style/bg_body.png) repeat-y top center; }
+
+/* header (Header) */
+#header a#skip-navigation {position:absolute; top:-1000px; border:none;}
+#header { width:960px; height:91px; margin:0 auto; border-bottom: 1px solid #C9C9C9; background:#ffffff url(../images/style/bg_header2.png) repeat-x top left; }
+#header ul { display:block; width:100%; margin-left: 10px; }
+#header ul li { display:block; width:120px; float:left; line-height:30px; text-align:center; }
+#header ul li a { color: #666666; text-decoration:none; }
+#header ul li a:hover { color: #999999; border-bottom: 2px solid #999999; }
+
+/*Content*/
+#content { width:900px; float:left; padding-top:20px; padding-bottom:40px; }
+#content h2 { display:block; clear:both; border-top: 1px solid #cccccc; padding-top:10px; }
+#content h2, #content h2 a, #content h2 a:visited, #content h2 a:active { font:bold 26px Arial, Helvetica, sans-serif; color:#000000; line-height:26px; text-decoration:none; }
+#content h2 a:hover { text-decoration:underline; }
+#content h3 { font:bold 17px Arial, Helvetica, sans-serif; font-weight:bold; padding-top:24px; padding-bottom:5px; }
+#content h4 { font-size:14px; line-height:14px; padding-top:5px; padding-bottom:3px; }
+#content p { text-align: justify; line-height: 20px; margin-top: 15px; margin-bottom: 15px; }
+#content p.code { font:normal 13px "Courier New", Courier, monospace; color:#333; border: 1px solid #C9C9C9; padding: 5px; background:#F8F8F8; }
+#content span.owlc { border-bottom: 1px solid; }
+#content span.owlp { border-bottom: 1px dashed; }
+#content span.owli { border-bottom: 1px dotted; }
+#content ul, #content ol { margin-top:10px; margin-bottom:15px; }
+#content ul li { list-style-type: circle; padding-left:5px; margin-bottom:5px; margin-left:20px; }
+.align-right { float:right; margin: 0 0 15px 15px; }
+
+
+/* seal + uzh logos */
+#logos { width:850px; margin: 0 0 10px 50px}
+
+/* Footer */
+#footer { clear:both; width:960px; margin:0 auto; background:#000000 url(../images/style/bg_footer.png) repeat-x top left; }
+#footer p { margin-left:20px; color: #ffffff; font-size: 11px; line-height: 40px; }
+#footer p a { color:#fff; text-decoration:underline; }

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>SEON - Software Evolution ONtologies</title>
+        	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29526146-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="inner">
+				<div id="header">
+                	<h1><a href="/">SEON</a></h1>
+					<ul>
+						<li><a title="SEON OWLDoc" href="ontologies/index.html">Documentation</a></li>
+						<li><a title="SEON Publications" href="#publications">Publications</a></li>
+						<li><a title="Issue Tracker" href="https://bitbucket.org/sealuzh/onts-seon/issues">Issue Tracker</a></li>
+						<li><a title="OntoAccess" href="http://ontoaccess.org">OntoAccess</a></li>
+						<li><a title="SOFAS" href="http://se-on.org/sofas/">SOFAS Platform</a></li>
+                                                <li><a title="Hawkshaw" href="https://bitbucket.org/sealuzh/tools-hawkshaw/wiki/Home">Hawkshaw</a></li>
+					</ul>
+				</div>
+                <div id="content">
+					<p>Welcome to se-on.org. This Web page hosts different <a href="http://www.w3.org/TR/owl2-overview/">OWL</a> ontologies that describe concepts in the context of software engineering, software evolution and software maintenance. The ontologies were created and are maintained by members of the <a href="http://seal.ifi.uzh.ch/">Software Evolution and Architecture Lab</a> of the <a href="http://www.ifi.uzh.ch/">Department of Informatics</a> of the <a href="http://www.uzh.ch/">University of Zurich</a>.</p>
+					<h2>Overview</h2>
+					<p>The acronym SEON stands for Software Evolution ONtologies and represents our attempt to formally describe knowledge from the domain of software evolution analysis and mining software repositories. SEON consists of multiple ontologies, for example to describe stakeholders, activities, artifacts, and the relations among all of them. The ultimate goal is to facilitate the implementation of tools that help software engineers to manage software systems over their entire life-cycle.</p>
+					
+	        		<h2>The 5 Layers of SEON</h2>
+					<p>The figure below presents an overview of the different layers of SEON. Its most distinguishing feature is, compared to other ontologies related to the domain of software evolution, its strict organization into different levels of abstraction.</p>
+					
+					<p><img src="images/content/pyramid.png" width="743" height="487" alt="The SEON Overview Pyramid" /></p>
+					
+				  <p>In the following, we explain each of the layers that comprise our pyramid of ontologies. We focus on a few examples and do not provide a detailed description for every concept defined in SEON. Instead, we explain the general structure of our ontology pyramid and the rationale behind its design. Interested readers are invited to browse our OWL definitions <a href="ontologies/index.html">online</a>. At the end of this section, we give an example on how the different layers can be used in conjunction with each others to describe knowledge in a concrete analysis scenario, namely the analysis of the evolution of code clones in a software system.</p>
+					
+					<h3>General Concepts</h3>
+					
+					<p>The pyramidion, i.e., the top layer, is comprised of domain-independent or general concepts, the attributes that describe them, and the relations between the concepts.</p>
+
+					<p>Concepts are modeled by OWL classes. Instances of classes are OWL individuals. OWL datatype properties represent attributes, and OWL object properties the relations between concepts. The first ones link individuals to data values, whereas the latter ones link individuals to individuals. To better differentiate terms, we <span class="owlc">underline</span> OWL classes in this section. A <span class="owli">dotted underline</span> denotes individuals and a <span class="owlp">dashed underline</span> is used for properties.</p>
+
+					<p>Classes in the top-layer relate to concepts omnipresent in software evolution. Examples are <span class="owlc">Activity</span>, <span class="owlc">Stakeholder</span>, or <span class="owlc">File</span>. We also defined a set of datatype properties for generic attributes, such as <span class="owlp">hasSize</span> or <span class="owlp">createdOn</span>. They are domain-independent; files, program execution stack traces, but also project teams have a size. Similarly, requirement documents, bug reports, or mailing list entries are attributed a creation date.</p>
+
+					<p>SEON also defines a more extensive set of domain-independent object properties. These properties are fundamental to many applications, as relations between &quot;things&quot; are paramount for most analyses in software evolution. On this level of abstraction, there is for example the concept of authorship, as any artifact in software evolution has one or several authors, denoted by the object property <span class="owlp">hasAuthor</span>. Our ontology also has an object property called <span class="owlp">dependsOn</span> that generalizes many different relations in the software evolution domain. Specializations of <span class="owlp">dependsOn</span> therefore can range from other domain-independent properties, such as hierarchical relationships (i.e., a parent-child relationship), to more domain-specific ones, e.g., dependencies between requirements or static source code dependencies. Such domain-specific properties, however, are specified in lower layers of SEON, as sub-properties of higher-level ones. Another domain-independent object property defines the abstract notion of similarity between two individuals. The concept of similarity, again, is universal. It applies to source code (a.k.a. &quot;code clones&quot;), as well as to issues (a.k.a. &quot;bug duplicates&quot;) and many other artifacts. What &quot;similar&quot; actually means in a specific case, however, is then up to the fact extractors to decide when they instantiate SEON models.</p>
+
+					<p>What is the benefit of having defined the abstractions described above? First, we as human beings are comfortable with thinking in categories|this capability develops as early as within the first half year of our lives. Categorization and taxonomizing things help us to understand the complex domain of software evolution. Second, such abstractions enable us to build flexible, largely domain-independent tools to support many different facets of software evolution activities.</p>
+					
+					<p>The pyramidion currently hosts the following ontologies (right-click and choose &quot;Save as...&quot; or &quot;Open in New Tab&#47;Window...&quot;):</p>
+					
+					<ul>
+						<li><a href="ontologies/general/2012/02/main.owl">The SEON General Concepts</a>. Defines abstract concepts, such as stakeholders and activities. These concepts are meant to be extended by the lower layers of SEON.</li>
+						<li><a href="ontologies/general/2012/02/measurement.owl">The SEON Measurement Ontology</a>. Defines the abstract notion of measurements and measures, as well as related concepts. Concrete measures are defined in lower levels of the ontology pyramid.</li>
+						<li><a href="ontologies/general/2012/02/measurement.owl">The SEON Annotations</a>. Defines SEON-specific annotations. Currently unused - mainly a placeholder for future development.</li>
+					</ul>
+					
+					<h3>Domain-spanning Concepts</h3>
+					
+					<p>The second-highest layer of SEON defines domain-spanning concepts. These concepts are less abstract than the general concepts. They describe knowledge that spans a limited number of subdomains, e.g., version control systems and source code in the case of our change coupling ontology. Change couplings describe implicit relationships between two or more software artifacts that frequently change together during the evolution of a software system. Other ontologies related to the version history of program code cover fine-grained source code changes and code clones. The ontology for fine-grained source code changes describes program modifications not only on a file level but down to the statement level. It is based on the ChangeDistiller meta-model. The code clone ontology is able to describe duplicated code and how it evolves over time. Similarly to the code clone ontology, our ontology about flawed code is concerned with quality attributes of source code. The ontology represents knowledge distilled from issue trackers and version control systems. It describes the bug history of files or modules, but also of individual classes or even methods in object-oriented programs. Furthermore, it covers Design Disharmonies as presented in the book <a href="http://www.springer.com/computer/swe/book/978-3-540-24429-5">Object-Oriented Metrics in Practice</a> or, in other words, formalized design shortcomings found in source code, e.g., Brain Classes, Feature Envy, Shotgun Surgery, etc.</p>
+
+					<p>Another important concept is that of a <span class="owlc">Measurement</span>. A sophisticated <a href="http://dx.doi.org/10.1007/3-540-34518-3_6">ontology for software measurement</a> has been presented by Bertoa et. al. SEON adapts some of the most important concepts identified by these authors, but we weigh simplicity over completeness by leaving out those that have not played a crucial role in our recent analyses.</p>
+
+					<p>A measurement is the act of measuring certain attributes of a software artifact or process; a <span class="owlc">Measure</span>, or metric, is the approach taken to perform a measurement. Measures have a <span class="owlc">Unit</span>, such as number of bugs per line of code. Measured values are expressed on a <span class="owlc">Scale</span>, e.g., an ordinal or nominal scale. Information about units and scales can be used to perform conversions, for example, to compare the results of different measurements. While the abstract concepts are defined in the pyramidion, many primitive measures are domain-specific. Still we consider measurements to belong mainly to the layer of domain-spanning concepts. Primitive measures, such as number of lines of code and number of closed bugs, on their own are not very meaningful and need to be put into relation to each other to derive a meaningful assessment of a software system's health state. The most effective measurements therefore are based on derived measures; they present an aggregation of values from different subdomains. The number of bugs per class is computed from values originating from the source code and the issue tracker, and the level of class ownership is derived from source code and commits to a version control system.</p>
+
+					<p>In summary, SEON's layer of domain-spanning concepts describes software evolution knowledge on the level of analyses and results, whereas the remaining two layers describe raw data, i.e., artifacts and meta-data directly retrieved from repositories.</p>
+					
+					<p>The layer of domain-spanning concepts currently hosts the following ontologies (right-click and choose &quot;Save as...&quot; or &quot;Open in New Tab&#47;Window...&quot;):</p>
+					
+					<ul>
+						<li><a href="ontologies/domain-spanning/2012/02/clones.owl">The Clone ontology</a>. Defines concepts to deal with duplication within artifacts. Mainly used to describe code clones, but also duplicated issues, requirements, etc. can be represented.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/code-flaws.owl">The SEON Code Flaws Ontology</a>. Defines concepts to represent design disharmonies in source code.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/change-couplings.owl">The SEON Coupling Ontology</a>. Used to describe coupling dependencies between artifacts, e.g., logical couplings.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/integration-history-issues.owl">The SEON Integration Ontology for History and Issues</a>. Bridges the gap between version control systems and issue trackers.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/integration-code-history.owl">The SEON Integration Ontology for Code and History</a>. Integrates the Code and History ontologies and therefore enables to represent multiple versions of software.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/integration-history-issues-code.owl">The SEON Integration Ontology for Code, History, and Issues</a>. Integrates the Code, History, and Issue ontologies and therefore enables to represent how issues affected multiple versions of software.</li>
+						<li><a href="ontologies/domain-spanning/2012/02/fine-grained-changes.owl">The SEON Fine-Grained Changes Ontology</a>. Defines concepts to represent fine-grained source code changes. This ontology currently not available - it is being cleaned-up currently and will be released to public soon.</li>
+					</ul>
+					
+					<h3>Domain-specific Concepts</h3>
+					
+					<p>The third layer is divided into different domains corresponding to important facets of the software evolution process, that is, among others, issue and version management. It includes a taxonomy for source code artifacts encountered in object-oriented programming. While the concepts defined in this layer are specific to a domain, they are independent of technology, vendor, and version. Each domain captures the commonalities shared among the many different issue trackers, object-oriented programming languages, or version control systems.</p>
+
+					<p>The majority of issue trackers are organized around <span class="owlc">Issues</span> that can be divided into <span class="owlc">Bugs</span>, <span class="owlc">FeatureRequests</span>, and <span class="owlc">Improvements</span>. Issues are <span class="owlp">reportedBy</span> someone and assigned to a developer for fixing them. Object-oriented programming languages usually consist of <span class="owlc">Classes</span> organized in some kind of <span class="owlc">Namespaces</span>. Classes <span class="owlp">declare</span> <span class="owlc">Members</span> - <span class="owlc">Methods</span> and <span class="owlc">Fields</span> - and they can <span class="owlp">inherit</span> from other classes. Developers modify files in resolving issues and <span class="owlp">commit</span> them to a version control system resulting in a new <span class="owlc">Revision</span> for these files. They organize their repository with respect to development streams into <span class="owlc">Branches</span> and prepare from time to time a <span class="owlc">Release</span> of the system under development. All these concepts - and many more - are formally defined in SEON. These definitions build a taxonomy that can be shared among researchers and practitioners, but also among machines.</p>
+
+					<p>Concepts do not necessarily need to be present in all of the systems that are abstracted by the domain-specific layer. The concept of, e.g., <span class="owlc">Mixins</span> does not exist in Java but in other languages, such as Scala and Smalltalk. Defining this concept nonetheless is perfectly valid, as it is a common concept in object orientation. There will simply be no instances of such concepts if SEON is used to describe a software system written in Java or any other language that does not support them.</p>
+
+					<p>While devising the layer of domain-specific concepts, we maintained a bird's-eye view on commonly used technologies that are conceptually related, yet very different in implementation. Our goal was to distill some of the essentials of software evolution into a set of meta-models. These meta-models, however, are not static. They are destined to evolve, as the body of software engineering knowledge grows.</p>
+					
+					<p>The domain-specific part of SEON currently consists of the following ontologies (right-click and choose &quot;Save as...&quot; or &quot;Open in New Tab&#47;Window...&quot;):</p>
+					
+					<ul>
+						<li><a href="ontologies/domain-specific/2012/02/issues.owl">The SEON Issue Tracking Ontology</a>. Defines concepts related to issue trackers.</li>
+						<li><a href="ontologies/domain-specific/2012/02/code.owl">The SEON Code Ontology</a>. Represents common concepts found in object-oriented programming languages.</li>
+						<li><a href="ontologies/domain-specific/2012/02/code-metrics.owl">The SEON Code Metrics Ontology</a>. Extends the measurement ontology to describe common source code measurements.</li>
+						
+						<li><a href="ontologies/domain-specific/2012/02/history.owl">The SEON History Ontology</a>. Can be used to describe the version control history of a software system.</li>
+					</ul>
+					
+					<h3>System-specific Concepts</h3>
+					
+					<p>Whereas the third layer describes domain-specific concepts that apply to families of systems, the bottom layer defines system-specific concepts. It extends the knowledge of the upper layers by concepts unique to certain programming languages, vendors, versions, or specific tool implementations. We aim to keep this layer as thin as possible while capturing as much relevant information as beneficial for analyzing specific facets of the evolution of concrete programs. For some systems, we have barely seen the need to define specific concepts, without loosing crucial information. Other systems differ significantly from the baseline and require more system-specific knowledge.</p>
+
+					<p>Assigning concepts to layers is not always straight-forward. Therefore, our knowledge engineering approach is that, whenever we devise an analysis where we encounter (and actually use) a potentially system-specific concept that is not yet generalized by one of the upper layers, we add it first to a system-specific ontology. Later, when our understanding of the domain has been consolidated, we review the system-specific concepts and decide whether they rather belong to, for example, the domain-specific layer, or not.</p>
+
+					<p>One example for system-specifics is the severity of issues. While most modern issue trackers know the concept of severity to classify an issue, their concrete implementations vary quite substantially. The different levels of severity, as well as their naming, depends very much on the particular issue tracker and, in some cases, even on how it is configured by development teams. Still, the information is valuable, for example, as input for machine learning algorithms when experimenting with automated bug triaging approaches. Therefore we defined <span class="owlc">Severity</span> in the layer of domain-specific concepts, but the individuals that represent the different levels of severity are covered in system-specific ontologies. System-specific parsers then extract this information and link individuals of <span class="owlc">Issue</span> to the corresponding individuals of <span class="owlc">Severity</span>.</p>
+					
+					<p>The system-specific part of SEON currently consists of the following ontologies (right-click and choose &quot;Save as...&quot; or &quot;Open in New Tab&#47;Window...&quot;):</p>
+					
+					<ul>
+						<li><a href="ontologies/system-specific/2012/02/java.owl">The SEON Java Ontology</a>. Extends the language-independent code ontology with Java-specific concepts.</li>
+						<li><a href="ontologies/system-specific/2012/02/jira.owl">The SEON Jira Ontology</a>. Extends the generic issue ontology with Atlassian Jira-specific concepts.</li>
+						<li><a href="ontologies/system-specific/2012/02/bugzilla.owl">The SEON Bugzilla Ontology</a>. Extends the generic issue ontology with Bugzilla-specific concepts.</li>
+					</ul>
+					
+					<p>Additional ontologies to describe the specifics of additional programming languages (C++, C#), as well as some to describe concrete issue trackers (Jira, Bugzilla) and version control systems (CVS, SVN, GIT, Mercurial) are currently being reviewed internally. They will be available online once they are finalized.</p>
+					
+					<h3>Natural Language Layer</h3>
+					
+					<p>The Semantic Web was not primarily devised for human beings consuming information. Instead its conception is that machines become capable of processing the knowledge of humans and it usually involves additional effort of the latter to encode the knowledge in an adequate format.</p>
+
+					<p>Despite this machine-centric conception, there are many occasions where humans need to interface with Semantic Web data. Therefore, we added a layer of natural language annotations to SEON. These annotations provide human-readable labels for all classes and properties. For individuals, we require <a href="http://www.w3.org/TR/rdf-schema/#ch_label">RDF Schema labels</a>; our fact extractors have to generate them somehow for each individual they create.</p>
+					
+					<p>The natural-language layer of SEON currently contains (right-click and choose &quot;Save as...&quot; or &quot;Open in New Tab&#47;Window...&quot;):</p>
+					
+					<ul>
+						<li><a href="ontologies/nl/2012/02/annotations-nl.owl">The SEON Natural Language Annotations</a>. Defines a few annotations to add natural language descriptions to the other SEON ontologies.</li>
+						<li><a href="ontologies/nl/2012/02/code-nl.owl">The SEON Code Synonyms</a>. Adds natural language labels (incl. synonyms) to all OWL classes, object-, and datatype properties.</li>
+					</ul>
+					
+					<p>The natural language layer is currently incomplete. It will be released later this year, once the evaluation of our Hawkshaw approach has been completed. Hawkshaw is a natural language interface integrated into the <a href="http://eclipse.org/">Eclipse IDE</a> and driven by SEON. It supports developers in program understanding.</p>
+					
+					<h2>An Example Scenario: Clone Evolution</h2>
+					
+					<p>Code clone detection in source code has been a lively field of research for many years now and it is generally accepted that duplicated code violates the Don't Repeat Yourself (DRY) principle, which can lead to software that is harder to maintain. An interesting aspect of code duplication is how clones evolve over time.</p>
+					
+					<p>SEON provides all the necessary means to describe such knowledge. In the following, we briefly discuss how the relevant concepts and their relations are distributed over the four layers of our ontology pyramid. The OWL classes and object properties for the scenario are illustrated in the figure below. The illustration omits datatype properties for the sake of simplicity.</p>
+					
+					<p><img src="images/content/example.png" width="761" height="540" alt="Clone Evolution Example" /></p>
+					
+					<p>The core concept for this analysis is <span class="owlc">Clone</span>. A clone <span class="owlp">belongsTo</span> a <span class="owlc">CloneClass</span> of duplicated fragments that are similar in syntax or semantics. While the concepts of our clone ontology might not suffice to represent all possible variants of clone analyses, it is straight-forward to extend the existing ones. For example, one could specialize the concept <span class="owlc">Clone</span> with different types of clones, such as <span class="owlc">SemanticClone</span> or <span class="owlc">SyntacticalClone</span> to provide further classification. Or, additional object properties could link clones to issues for investigations on whether duplication leads to more bugs, and so on.</p>
+					
+					<p>A <span class="owlc">Committer</span> <span class="owlp">introduces</span> a clone when she <span class="owlp">commits</span> a new <span class="owlc">Version</span> of a <span class="owlc">FileUnderVersionControl</span> to the SVN repository. Committers are <span class="owlc">Developers</span> that can check-in modifications. They are one of the many <span class="owlc">Stakeholders</span> associated with the development process. Versioned files are <span class="owlp">Files</span> managed by a version control system. <span class="owlc">Files</span> are among the <span class="owlc">Artifacts</span> that are produced when software is created. Clones occur in a particular <span class="owlc">CodeEntity</span>, such as in a <span class="owlc">ComplexType</span> (that is, a class, interface, enum, etc.), a <span class="owlc">Method</span>, etc. The size of such a piece of code, as well as the size of a clone, can be assessed by a <span class="owlc">Measurement</span>. An adequate <span class="owlc">Measure</span> for that is the number of lines of code, <span class="owli">LOC</span>.</p>
+					<p>The OWL classes <span class="owlc">Cloning</span> and <span class="owlc">Commit</span> are special cases: in principle, the relationship between clones and committers is already sufficiently stated by the object property <span class="owlp">introduces</span>. However, in some cases, we also want to express that the introduction of a clone is an <span class="owlc">Activity</span> with a certain time stamp and carried out by a particular stakeholder. There are two ways to do that. The first is reification, which allows for statements about statements. The second is to define an association class. Since reification has not been widely adopted in the Semantic Web, we decided for the second variant and defined the OWL class <span class="owlc">Cloning</span> to represent the introduction of a clone. A clone introduction is <span class="owlp">doneBy</span> a committer and <span class="owlp">manifestsIn</span> a new clone. A similar case is that of a <span class="owlc">Commit</span>. It is also an activity that a committer <span class="owlp">performs</span> and which <span class="owlp">adds</span> a new version to a file. This apparent redundancy in the ontology definition allows us to support a wider range of applications.</p>
+					
+					<p>Fact extractors do not necessarily need to create both, an individual of Cloning and the &quot;Committer<sub>X</sub> introduces Clone<sub>Y</sub>&quot;. In many cases, we defined rules in the <a href="http://www.w3.org/Submission/SWRL/">Semantic Web Rule Language (SWRL)</a>, similar to the one below. With a reasoner, we can then automatically infer the missing triples.</p>
+					
+					<p class="code">Cloning(?cloning), doneBy(?cloning, ?committer), manifestsIn(?cloning, ?clone)
+&rarr; introduces(?committer, ?clone)</p>
+					
+					<p>Notable in our example is also the OWL class <span class="owlc">Visibility</span>. In most object-oriented programming languages, there exists an information-hiding mechanism to control the access of parts of the code. In Java, there are the visibility modifiers <span class="owli">public</span>, <span class="owli">default</span>, <span class="owli">protected</span>, and <span class="owli">private</span> that apply to types and their members. The actual instances of the visibility modifiers are defined in a system-specific (<strong>Java</strong>) ontology because there are quite significant differences in the meaning of such modifiers depending on the programming language used. The visibility concept, however, belongs to the domain-specific layer together with the other abstractions of <strong>Code</strong>. The layer also contains the predefined <span class="owli">LOC</span> individual, because the measure is clearly associated with program code. In our analysis scenario, there are no domain-spanning measures needed. The <strong>History</strong> ontology is located at the same level of abstraction as the Code. Currently, there are no system-specific extensions to it. The <strong>Clones</strong> ontology is domain-spanning|it relates to the <strong>Code</strong>, as well as to the <strong>History</strong>. The general concepts layer then provides abstractions for various concepts used in the lower layers.</p>
+					
+					<h2><a name="publications">Publications</a></h2>
+					
+					<p>The following articles are related to SEON:</p>
+					
+					<ul>
+						<li>Michael W&uuml;rsch, Emanuel Giger, Harald C. Gall, <strong>Evaluating a Query Framework for Software Evolution Data</strong>. ACM Transactions on Software Engineering and Methodology, accepted for publication, 2013.</li>
+						<li>Michael W&uuml;rsch, Giacomo Ghezzi, Matthias Hert, Gerald Reif, Harald C. Gall, <strong>SEON - A Family of Ontologies for Software Evolution and its Applications</strong>. Computing, Vol. 94(11), 2012.</li>
+						<li>Matthias Hert, Giacomo Ghezzi, Michael W&uuml;rsch, Harald C. Gall, <strong>How to 'Make a Bridge to the new Town' using OntoAccess</strong>, Proceedings of the 10th International Semantic Web Conference (ISWC) 2011. (inproceedings)</li>
+						<li>Giacomo Ghezzi, Harald C. Gall, <strong>SOFAS : A Lightweight Architecture for Software Analysis as a Service</strong>, Working IEEE/IFIP Conference on Software Architecture (WICSA) 2011. (inproceedings)</li>
+						<li>Michael W&uuml;rsch, Giacomo Ghezzi, Gerald Reif, Harald C. Gall, <strong>Supporting Developers with Natural Language Queries</strong>, Proceedings of the 32nd International Conference on Software Engineering (ICSE), 2010. (inproceedings) </li>
+						<li>Michael W&uuml;rsch, Gerald Reif, Serge Demeyer, Harald C. Gall, <strong>Fostering Synergies - How Semantic Web Technology could influence Software Repositories</strong>, Proceedings of the 2nd Intl. Workshop on Search-driven development: Users, Infrastructure, Tools and Evaluation (SUITE)., 2010. (inproceedings/Workshop paper)</li>
+					</ul>
+					
+					<p>You are welcome to visit our <a href="http://seal.ifi.uzh.ch/publications/">publications</a> page, in case that you are interested in our other research.</p>
+					
+                </div>
+<div id="logos"><img src="images/style/seal_blue.png" width="161" height="67" alt="Software Evolution and Architecture Lab" longdesc="http://seal.ifi.uzh.ch/" /> <img class="align-right" src="images/style/uzh.jpeg" alt="UZH" width="211" height="67" longdesc="http://www.uzh.ch" /></div>
+                <div id="footer">
+					<p><a title="Software Evolution and Architecture Lab" href="http://seal.ifi.uzh.ch/">Software Evolution and Architecture Lab</a> - <a title="Department of Informatics" href="http://www.ifi.uzh.ch/">Department of Informatics</a> - <a title="University of Zurich" href="http://www.uzh.ch/">University of Zurich</a> | Last updated: January 2013</p>
+                </div>
+			</div>
+		</div>
+	</body>
+</html>

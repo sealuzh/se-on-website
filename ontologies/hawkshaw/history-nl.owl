@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY annotations-nl "http://se-on.org/ontologies/hawkshaw/2012/02/annotations-nl.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://se-on.org/ontologies/hawkshaw/2012/02/history-nl.owl#"
+     xml:base="http://se-on.org/ontologies/hawkshaw/2012/02/history-nl.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:annotations-nl="http://se-on.org/ontologies/hawkshaw/2012/02/annotations-nl.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history-nl.owl">
+        <owl:imports rdf:resource="http://se-on.org/ontologies/hawkshaw/2012/02/annotations-nl.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#modifiesFile">
+        <annotations-nl:phrase-plural xml:lang="en">change</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">changes</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-singular xml:lang="en">modifies</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">modify</annotations-nl:phrase-plural>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#isModifiedFileBy">
+        <annotations-nl:phrase-plural xml:lang="en">are changed by</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-plural xml:lang="en">are modified by</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">is changed by</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-singular xml:lang="en">is modified by</annotations-nl:phrase-singular>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#Committer">
+        <annotations-nl:phrase-singular xml:lang="en">Committer</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Committers</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">Developer</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Developers</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">Programmer</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Programmers</annotations-nl:phrase-plural>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#isVersionOf">
+        <annotations-nl:phrase-plural xml:lang="en">belong to</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">belongs to</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">change</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">changes</annotations-nl:phrase-singular>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#isCommittedBy">
+        <annotations-nl:phrase-plural xml:lang="en">are committed by</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">is committed by</annotations-nl:phrase-singular>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#hasVersion">
+        <annotations-nl:phrase-singular xml:lang="en">has</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">have</annotations-nl:phrase-plural>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#Version">
+        <annotations-nl:phrase-singular xml:lang="en">Revision</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Revisions</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">Version</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Versions</annotations-nl:phrase-plural>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#commitsVersion">
+        <annotations-nl:phrase-plural xml:lang="en">commit</annotations-nl:phrase-plural>
+        <annotations-nl:phrase-singular xml:lang="en">commits</annotations-nl:phrase-singular>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://se-on.org/ontologies/hawkshaw/2012/02/history.owl#FileUnderVersionControl">
+        <annotations-nl:phrase-singular xml:lang="en">File</annotations-nl:phrase-singular>
+        <annotations-nl:phrase-plural xml:lang="en">Files</annotations-nl:phrase-plural>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1912) http://owlapi.sourceforge.net -->
+
